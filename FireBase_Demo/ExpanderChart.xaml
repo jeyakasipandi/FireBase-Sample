@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Expander;assembly=Syncfusion.Expander.XForms"
+             xmlns:local="clr-namespace:FireBase_Demo"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             x:Class="FireBase_Demo.ExpanderChart">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <syncfusion:SfExpander>
+                <syncfusion:SfExpander.Header>
+                    <Grid>
+                        <Label TextColor="#495F6E" Text="Chart in Expander" VerticalTextAlignment="Center" />
+                    </Grid>
+                </syncfusion:SfExpander.Header>
+                <syncfusion:SfExpander.Content>
+                    <chart:SfChart x:Name="Chart"  HeightRequest="400" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <chart:SfChart.Margin>
+                            <OnPlatform x:TypeArguments="Thickness" WinPhone="0,0,15,0" />
+                        </chart:SfChart.Margin>
+                        <chart:SfChart.Title>
+                            <chart:ChartTitle Text="Food Production - 2017 " />
+                        </chart:SfChart.Title>
+                        <chart:SfChart.PrimaryAxis>
+                            <chart:DateTimeAxis EdgeLabelsDrawingMode="Shift" Minimum="{Binding Minimum}" Maximum="{Binding Minimum}" ZoomFactor="0.2" ZoomPosition="0.6">
+                                <chart:DateTimeAxis.Title>
+                                    <chart:ChartAxisTitle Text="Production across year">
+                                    </chart:ChartAxisTitle>
+                                </chart:DateTimeAxis.Title>
+                            </chart:DateTimeAxis>
+                        </chart:SfChart.PrimaryAxis>
+                        <chart:SfChart.SecondaryAxis>
+                            <chart:NumericalAxis>
+                                <chart:NumericalAxis.Title>
+                                    <chart:ChartAxisTitle Text="Growth (In Metric Tonnes)">
+                                    </chart:ChartAxisTitle>
+                                </chart:NumericalAxis.Title>
+                            </chart:NumericalAxis>
+                        </chart:SfChart.SecondaryAxis>
+                        <chart:SfChart.ChartBehaviors>
+                            <chart:ChartZoomPanBehavior EnableSelectionZooming="False" ZoomMode="X" MaximumZoomLevel="200" />
+                        </chart:SfChart.ChartBehaviors>
+                        <chart:SfChart.Series>
+                            <chart:FastLineSeries ItemsSource="{Binding DateTimeData}" XBindingPath="Date" YBindingPath="Growth" EnableTooltip="True">
+                                <chart:FastLineSeries.ColorModel>
+                                    <chart:ChartColorModel Palette="Natural" />
+                                </chart:FastLineSeries.ColorModel>
+                            </chart:FastLineSeries>
+                        </chart:SfChart.Series>
+                    </chart:SfChart>
+                </syncfusion:SfExpander.Content>
+            </syncfusion:SfExpander>
+          
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:FireBase_Demo"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             x:Class="FireBase_Demo.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:ViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Button Text="push Page" Clicked="Button_Clicked"/>
+         <local:ParetoChart x:Name="paretoChart" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+    </StackLayout>
+
+    </ContentPage>
